@@ -24,7 +24,7 @@ res.render('show_index.ejs', {
 //SHOW ROUTE - GET Request
 app.get('/budgets/:index', (req, res) => {
     res.render('show_budget.ejs', {
-        budget: budgetData[req.params.index],
+        budgetInfo: budgetData[req.params.index],
         index: req.params.index
         
     })
