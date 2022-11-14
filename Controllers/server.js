@@ -7,6 +7,7 @@ const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 
 let allAmounts = 0
+let backgroundStyle = 0
 
 function addTotals(){
     for (let i = 0; i < budgetData.length; i++){
@@ -34,7 +35,8 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.get('/budgets', (req, res) => {
 res.render('show_index.ejs', {
     budget: budgetData,
-    bankAccount: allAmounts
+    bankAccount: allAmounts,
+    backgroundColor: backgroundStyle
     })
 })
 
@@ -61,6 +63,13 @@ app.post('/budgets', (req, res) => {
     console.log(budgetData)
     allAmounts = 0
     addTotals()
+    if (0 > allAmounts){
+        backgroundStyle="red"
+    }
+    else if (allAmounts > 1000){
+        backgroundStyle="green"
+    }
+    else backgroundStyle="white"
     res.redirect('/budgets')
 })
 
