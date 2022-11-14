@@ -5,12 +5,15 @@ const PORT = process.env.PORT
 const budgetData = require('../models/budget.js')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
+
 let allAmounts = 0
 
-for (let i = 0; i < budgetData.length; i++){
-   allAmounts += budgetData[i].amount               
+function addTotals(){
+    for (let i = 0; i < budgetData.length; i++){
+   allAmounts += budgetData[i].amount           
+    }
 }
-console.log(allAmounts)
+addTotals()
 
 
 //Middleware
@@ -53,11 +56,17 @@ app.get('/budgets/:index', (req, res) => {
 
 //CREATE ROUTE - POST Request
 app.post('/budgets', (req, res) => {
-    console.log(req.body)
+    req.body.amount = parseInt(req.body.amount)
     budgetData.push(req.body)
+    console.log(budgetData)
+    allAmounts = 0
+    addTotals()
     res.redirect('/budgets')
 })
+
+
 
 app.listen(PORT, () => {
     console.log(`The app is listening on Port ${PORT}`)
 })
+
