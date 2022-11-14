@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Budget Information</title>
+    <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
 </head>
 <body>
     <div class="container">
-        <h1><%=budgetInfo.name %></h1>
-        <a href="/budgets"><button>BACK</button></a>
-        <p>Date: <%=budgetInfo.date %> </p>
-        <p>Name: <%=budgetInfo.name %> </p>
-        <p>From: <%=budgetInfo.from %> </p>
-        <p>Amount: <%=budgetInfo.amount %> </p>
-        <p>Tags: <%=budgetInfo.tags %> </p>
+        <h1>Enter your new budget information, broke ass!</h1>
+        <form action="/budgets" method="POST">
+            <input type="text" placeholder="Date">
+            <input type="text" placeholder="Name">
+            <input type="text" placeholder="Amount">
+            <input type="text" placeholder="From">
+            <input type="text" placeholder="Tags">
+            <input type="submit" value="Submit">
+        </form>
     </div>
-    
 </body>
 </html>

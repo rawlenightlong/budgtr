@@ -3,6 +3,7 @@ const app = express()
 require('dotenv').config()
 const PORT = process.env.PORT 
 const budgetData = require('../models/budget.js')
+const bodyParser = require('body-parser')
 
 
 
@@ -32,7 +33,7 @@ app.get('/budgets/:index', (req, res) => {
 
 //NEW ROUTE - GET Request
 app.get('/budgets/new', (req, res) => {
-
+res.render('new_budget.ejs')
 })
 
 //CREATE ROUTE - POST Request
