@@ -12,11 +12,11 @@
     <div class="container">
         <h1>Enter your new budget information, broke ass!</h1>
         <form action="/budgets" method="POST">
-            <input type="text" placeholder="Date">
-            <input type="text" placeholder="Name">
-            <input type="text" placeholder="Amount">
-            <input type="text" placeholder="From">
-            <input type="text" placeholder="Tags">
+            <input type="text" name="date" placeholder="Date"><br>
+            <input type="text" name="name" placeholder="Name"><br>
+            <input type="text" name="amount" placeholder="Amount"><br>
+            <input type="text" name="from" placeholder="From"><br>
+            <input type="text" name="tags[]" placeholder="Tags"><br>
             <input type="submit" value="Submit">
         </form>
     </div>
